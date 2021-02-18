@@ -11,6 +11,8 @@ SaleDemoTest主要是打折案例
 <br />
 DroolsDemoTest主要是Drools原生api的使用
 <br />
+[activiti的businessTask与drools相关的技术博客](https://www.cnblogs.com/dengjiahai/p/7051288.html)
+<br />
 [推荐的学习笔记网站](https://happysnail.cn/#/./docs/Drools)
 
 
