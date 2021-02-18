@@ -1,0 +1,21 @@
+package sc.ad;
+
+import com.sc.model.Leave;
+
+rule "leave1"
+    activation-group "mygroup"
+    when
+        u : Leave(day < 3)
+    then
+        u.setTotal(u.getDay() + 2);
+        System.out.println("rule1被触发："+u);
+end
+
+rule "leave2"
+    activation-group "mygroup"
+    when
+        u : Leave(day >= 3)
+    then
+        u.setTotal(u.getDay() + 5);
+        System.out.println("rule2被触发："+u);
+end

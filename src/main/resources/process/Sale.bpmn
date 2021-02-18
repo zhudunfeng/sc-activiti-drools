@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="guize" name="测试规则引擎" isExecutable="true">
+    <startEvent id="startEvent1"></startEvent>
+    <businessRuleTask id="businessruletask1" name="进行优惠策略应用" activiti:ruleVariablesInput="${sale1},${sale2},${sale3},${sale4}" activiti:resultVariable="saleResults"></businessRuleTask>
+    <serviceTask id="servicetask1" name="输出结果" activiti:class="com.sc.service.SaleJavaDelegate"></serviceTask>
+    <sequenceFlow id="sid-F5486AA1-2765-4D86-9282-B0BDB789095D" sourceRef="businessruletask1" targetRef="servicetask1"></sequenceFlow>
+    <endEvent id="sid-7810ADB3-C406-4661-BA78-0A3624199983"></endEvent>
+    <sequenceFlow id="sid-BC54EEA9-5055-4BA7-BFA6-6F82E8B7BD11" sourceRef="servicetask1" targetRef="sid-7810ADB3-C406-4661-BA78-0A3624199983"></sequenceFlow>
+    <userTask id="usertask1" name="录入销售信息" activiti:assignee="aa">
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://activiti.com/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-3CCE6046-1D1C-4CCA-A30A-ECC78C4AA50F" sourceRef="startEvent1" targetRef="usertask1"></sequenceFlow>
+    <sequenceFlow id="sid-A652824B-D696-4FB3-B595-7C98D6CF6865" sourceRef="usertask1" targetRef="businessruletask1"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_guize">
+    <bpmndi:BPMNPlane bpmnElement="guize" id="BPMNPlane_guize">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="businessruletask1" id="BPMNShape_businessruletask1">
+        <omgdc:Bounds height="80.0" width="100.0" x="345.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="servicetask1" id="BPMNShape_servicetask1">
+        <omgdc:Bounds height="80.0" width="100.0" x="510.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-7810ADB3-C406-4661-BA78-0A3624199983" id="BPMNShape_sid-7810ADB3-C406-4661-BA78-0A3624199983">
+        <omgdc:Bounds height="28.0" width="28.0" x="660.0" y="164.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
+        <omgdc:Bounds height="80.0" width="100.0" x="175.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-A652824B-D696-4FB3-B595-7C98D6CF6865" id="BPMNEdge_sid-A652824B-D696-4FB3-B595-7C98D6CF6865">
+        <omgdi:waypoint x="275.0" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="345.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-3CCE6046-1D1C-4CCA-A30A-ECC78C4AA50F" id="BPMNEdge_sid-3CCE6046-1D1C-4CCA-A30A-ECC78C4AA50F">
+        <omgdi:waypoint x="130.0" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="175.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-F5486AA1-2765-4D86-9282-B0BDB789095D" id="BPMNEdge_sid-F5486AA1-2765-4D86-9282-B0BDB789095D">
+        <omgdi:waypoint x="445.0" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="510.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-BC54EEA9-5055-4BA7-BFA6-6F82E8B7BD11" id="BPMNEdge_sid-BC54EEA9-5055-4BA7-BFA6-6F82E8B7BD11">
+        <omgdi:waypoint x="610.0" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="660.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

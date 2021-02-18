@@ -1,0 +1,43 @@
+package sc.ad //逻辑包名
+
+import com.sc.model.Sale
+import java.math.BigDecimal
+
+//周六周日打九折
+//这三个规则都设置了no-loop和lock-on-active属性为true，表示一个规则被触发后
+//lock-on-active属性为true表示即使update后也不会被重新触发
+rule "rule1"
+    salience 1
+    no-loop true
+    lock-on-active true
+    when
+        $s : Sale(getDayOfWeek() == 1 || getDayOfWeek() == 7)
+    then
+        $s.setDiscount(new BigDecimal(0.9));
+        update($s);
+end
+
+
+// 100元打八折
+rule "rule2"
+    salience 2
+    no-loop true
+    lock-on-active true
+    when
+        $s : Sale(getTotal() >= 100)
+    then
+        $s.setDiscount(new BigDecimal(0.8));
+        update($s);
+end
+
+// 200元打七折
+rule "rule3"
+    salience 3
+    no-loop true
+    lock-on-active true
+    when
+        $s : Sale(getTotal() >= 200)
+    then
+        $s.setDiscount(new BigDecimal(0.7));
+        update($s);
+end
