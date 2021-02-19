@@ -93,6 +93,8 @@ DroolsDemoTest主要是Drools原生api的使用
 
 [activiti的businessTask与drools相关的技术博客](https://www.cnblogs.com/dengjiahai/p/7051288.html)
 <br />
+[activiti整合drools的相关技术博客](https://blog.csdn.net/boxiong86/article/details/78618250)
+<br />
 [推荐的学习笔记网站](https://happysnail.cn/#/./docs/Drools)
 
 
